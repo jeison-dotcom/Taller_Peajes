@@ -7,7 +7,7 @@
 class Peaje
 {
     private:
-    Vehiculo* vehiculo;
+    Vehiculo* vehiculos;
 
     public:
     void GenerarResivo();
