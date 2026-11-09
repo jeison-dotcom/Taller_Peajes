@@ -2,7 +2,6 @@
 
 #include<iostream>
 #include<string>
-//#include<vector>
 
 using namespace std;
 
@@ -13,14 +12,15 @@ class Vehiculo
 
     public:
     Vehiculo(string placa);
-
+    
     virtual~Vehiculo();
-    virtual string getTipo();
-    virtual int cobrar()const;
-    virtual string info() const;
 
+    virtual string getTipo() const = 0;
     string getPlaca() const;
-    void setPlaca();
 
+    void setPlaca(string);
+
+    virtual int cobrar()const;
+    virtual string informacion() const;
 };
 ostream &operator << (ostream &os, Vehiculo & Vehiculo);

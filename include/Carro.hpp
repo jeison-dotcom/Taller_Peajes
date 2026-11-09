@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Vehiculo.hpp"
+#include "Variante.hpp"
 
 class Carro : public Vehiculo
 {
@@ -9,7 +10,9 @@ class Carro : public Vehiculo
     public:
     Carro(string placa, int pasajeros);
     ~Carro();
-    void setPasajeros();
+    void setPasajeros(int pasajeros);
     int getPasajeros() const;
-    string info() const override;
+    string getTipo() const override;
+    string informacion() const override;
+    int cobrar() const override;
 };
