@@ -3,15 +3,18 @@
 #include<iostream>
 #include<string>
 
+#include "Persona.hpp"
+
 using namespace std;
 
 class Vehiculo
 {
     protected:
     string placa;
+    Persona* propietario;
 
     public:
-    Vehiculo(string placa);
+    Vehiculo(Persona* propietario, string placa);
     
     virtual~Vehiculo();
 
@@ -21,6 +24,6 @@ class Vehiculo
     void setPlaca(string);
 
     virtual int cobrar()const;
-    virtual string informacion() const;
+    virtual void informacion() const = 0;
 };
 ostream &operator << (ostream &os, Vehiculo & Vehiculo);

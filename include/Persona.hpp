@@ -10,6 +10,7 @@ class Persona
     protected:
     string nombre;
     string id;
+
     public:
     Persona(string nombre, string id);
     ~Persona();
