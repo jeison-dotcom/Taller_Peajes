@@ -14,4 +14,5 @@ class Persona
     public:
     Persona(string nombre, string id);
     ~Persona();
+    
 };

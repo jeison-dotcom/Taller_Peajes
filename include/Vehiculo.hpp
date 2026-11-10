@@ -23,7 +23,7 @@ class Vehiculo
 
     void setPlaca(string);
 
-    virtual int cobrar()const;
+    virtual int cobrar()const = 0;
     virtual void informacion() const = 0;
 };
 ostream &operator << (ostream &os, Vehiculo & Vehiculo);

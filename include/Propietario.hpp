@@ -2,7 +2,10 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "Persona.hpp"
+
+class Peaje;
 
 class Propietario : public Persona
 {
@@ -11,4 +14,6 @@ class Propietario : public Persona
     public:
     Propietario(string nombre, string id, string ciudad);
     ~Propietario();
+
+    bool esVecino(const std::vector<std::string>& ciudadesVecinas) const;
 };

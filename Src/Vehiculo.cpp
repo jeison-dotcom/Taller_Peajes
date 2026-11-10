@@ -5,5 +5,3 @@ Vehiculo::~Vehiculo(){}
 
 string Vehiculo::getPlaca() const{return placa;}
 void Vehiculo::setPlaca(string placa){this->placa = placa;}
-
-int Vehiculo::cobrar()const{return 0;}

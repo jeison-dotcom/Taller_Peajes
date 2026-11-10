@@ -12,9 +12,11 @@ class Peaje
 {
     private:
     vector<Vehiculo*> vehiculos;
+    vector<string> ciudadesVcinas = {"Popayan","Cali","El Tambo"};
 
     public:
-    Peaje(vector<Vehiculo*>& vehiculos);
+    Peaje();
+    ~Peaje();
 
     void AgregarOperador();
     void registrarPropietario();
