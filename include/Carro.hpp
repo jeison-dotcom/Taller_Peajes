@@ -9,13 +9,14 @@ class Carro : public Vehiculo
     int pasajeros;
 
     public:
-    Carro(Propietario* propietario,string placa, int pasajeros);
+    Carro(Persona* propietario,string placa, int pasajeros);
     ~Carro();
 
     void setPasajeros(int pasajeros);
     int getPasajeros() const;
     string getTipo() const override;
 
+    void subriPasajero();
     int cobrar() const override;
     void informacion() const override;
 

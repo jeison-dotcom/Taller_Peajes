@@ -11,19 +11,20 @@ class Vehiculo
 {
     protected:
     string placa;
-    Propietario* propietario;
+    Persona* propietario;
 
     public:
-    Vehiculo(Propietario* propietario, string placa);
+    Vehiculo(Persona* propietario, string placa);
     
     virtual~Vehiculo();
 
     virtual string getTipo() const = 0;
     string getPlaca() const;
-
-    void setPlaca(string);
+    Persona* getPropietario() const;
+    void setPropietario(Persona* propietario);
+    void setPlaca(const string& p);
 
     virtual int cobrar()const = 0;
     virtual void informacion() const = 0;
 };
-ostream &operator << (ostream &os, Vehiculo & Vehiculo);
+//ostream &operator << (ostream &os, Vehiculo & Vehiculo);

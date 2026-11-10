@@ -13,6 +13,10 @@ class Persona
 
     public:
     Persona(string nombre, string id);
-    ~Persona();
+    virtual~Persona();
+    
+    virtual string getDescriccion() const = 0;
+    string getNombre() const;
+    string getID() const;
     
 };

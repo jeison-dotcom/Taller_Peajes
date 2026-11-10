@@ -1,7 +1,9 @@
 #include "../include/Vehiculo.hpp"
 
-Vehiculo::Vehiculo(Propietario* propietario, string placa) : propietario(propietario), placa(placa) {}
+Vehiculo::Vehiculo(Persona* propietario, string placa) : placa(placa), propietario(propietario) {}
 Vehiculo::~Vehiculo(){}
 
-string Vehiculo::getPlaca() const{return placa;}
-void Vehiculo::setPlaca(string placa){this->placa = placa;}
+string Vehiculo::getPlaca() const { return placa; }
+void Vehiculo::setPlaca(const string& p) { placa = p; }
+Persona* Vehiculo::getPropietario() const { return propietario; }
+void Vehiculo::setPropietario(Persona* p) { propietario = p; }

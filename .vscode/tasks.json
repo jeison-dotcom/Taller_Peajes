@@ -2,17 +2,22 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: g++-13 compilar archivo activo",
+            "label": "C/C++: g++-13 compilar proyecto",
             "command": "/usr/bin/g++-13",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "${workspaceFolder}/Src/main.cpp",
+                "${workspaceFolder}/Src/Carro.cpp",
+                "${workspaceFolder}/Src/Peaje.cpp",
+                "${workspaceFolder}/Src/Persona.cpp",
+                "${workspaceFolder}/Src/Propietario.cpp",
+                "${workspaceFolder}/Src/Vehiculo.cpp",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${workspaceFolder}/Taller_Peajes"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [
                 "$gcc"

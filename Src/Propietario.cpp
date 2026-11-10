@@ -12,3 +12,10 @@ bool Propietario::esVecino(const vector<string>& ciudadesVecinas) const
     }
     return false;
 }
+
+string Propietario::getDescriccion() const
+{
+    string descripcion;
+    cout << "descripcion: "; cin >> descripcion;
+    return descripcion;
+}

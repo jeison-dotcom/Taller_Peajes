@@ -11,9 +11,11 @@ class Propietario : public Persona
 {
     private:
     string ciudad;
+
     public:
     Propietario(string nombre, string id, string ciudad);
     ~Propietario();
 
-    bool esVecino(const std::vector<std::string>& ciudadesVecinas) const;
+    string getDescriccion() const override;
+    bool esVecino(const vector<string>& ciudadesVecinas) const;
 };
