@@ -4,21 +4,27 @@
 #include "Vehiculo.cpp"
 #include "Carro.cpp"
 #include "Persona.cpp"
+#include "Propietario.cpp"
+#include "Peaje.cpp"
 
 
 using namespace std;
 
 int main()
 {
+
     vector <Vehiculo*> vehiculos;
+    Peaje peajeCerroVerde(vehiculos);
+    peajeCerroVerde.RegistarVehiculo();
 
-    Persona persona1("Jeison","1058");
 
-    Vehiculo* vehiculo = new Carro(&persona1,"CPP17",2);
+    //Propietario persona1("Jeison","1058","Popayan");
 
-    vehiculos.emplace_back();
+    //Vehiculo* vehiculo = new Carro(&persona1,"CPP17",2);
 
-    vehiculo[0].getTipo();
-    vehiculo[0].informacion();
+    //vehiculos.emplace_back();
+
+    //vehiculo[0].getTipo();
+    //vehiculo[0].informacion();
 
 }

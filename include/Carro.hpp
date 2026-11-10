@@ -9,7 +9,7 @@ class Carro : public Vehiculo
     int pasajeros;
 
     public:
-    Carro(Persona* propietario,string placa, int pasajeros);
+    Carro(Propietario* propietario,string placa, int pasajeros);
     ~Carro();
 
     void setPasajeros(int pasajeros);

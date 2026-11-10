@@ -3,7 +3,7 @@
 #include<iostream>
 #include<string>
 
-#include "Persona.hpp"
+#include "Propietario.hpp"
 
 using namespace std;
 
@@ -11,10 +11,10 @@ class Vehiculo
 {
     protected:
     string placa;
-    Persona* propietario;
+    Propietario* propietario;
 
     public:
-    Vehiculo(Persona* propietario, string placa);
+    Vehiculo(Propietario* propietario, string placa);
     
     virtual~Vehiculo();
 

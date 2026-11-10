@@ -1,6 +1,6 @@
 #include "../include/Carro.hpp"
 
-Carro::Carro(Persona* propietario,string placa, int pasajeros):Vehiculo(propietario,placa),pasajeros(pasajeros){}
+Carro::Carro(Propietario* propietario,string placa, int pasajeros):Vehiculo(propietario,placa),pasajeros(pasajeros){}
 Carro::~Carro(){}
 
 void Carro::setPasajeros(int pasajeros){this-> pasajeros = pasajeros;}
