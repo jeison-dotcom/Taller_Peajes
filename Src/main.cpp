@@ -26,8 +26,19 @@ int main()
         Persona* p1 = new Propietario("Jeison", "1058", true);
         Persona* p2 = new Propietario("Juan", "1059", false);
 
-        Vehiculo* v1 = new Carro(p2, "ABC123", 3);
+        Vehiculo* v1 = new Carro(p1, "ABC123", 3);
+        Registro registro(v1->getPlaca(), v1->getTipo(), v1->cobrar());
+        cerroVerde->agregarRegistro(registro);
+
+        cerroVerde->mostrarRegistros();
+
+
+
+
         cout << *v1 << endl;
+        cout << *p1 << endl;
+        cout << *p2 << endl;
+
         cout << "Tarifa: " << v1->cobrar() << endl;
         delete v1;
         delete p1;

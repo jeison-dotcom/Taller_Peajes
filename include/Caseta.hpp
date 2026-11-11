@@ -19,6 +19,7 @@ class Caseta
     ~Caseta();
 
     void setOperador(Persona* operador);
-    //void agregarRegistro(Registro reistro);
+    void agregarRegistro(Registro& registro);
     
+    void mostrarRegistros() const;
 };

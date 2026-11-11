@@ -15,8 +15,10 @@ class Persona
     Persona(string nombre, string id);
     virtual~Persona();
     
-    virtual string getDescriccion() const = 0;
     string getNombre() const;
     string getID() const;
+
+    virtual string getDescriccion() const;;
     
 };
+ostream &operator << (ostream &os, Persona & persona);
