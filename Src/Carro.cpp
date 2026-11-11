@@ -22,7 +22,7 @@ void Carro::subriPasajero()
 
 int Carro::cobrar() const
 {
-    int total = 8000 + 200 * UNIDAD;
+    int total = 10000 + 200 * UNIDAD;
 
     if (propietario != nullptr)
     {

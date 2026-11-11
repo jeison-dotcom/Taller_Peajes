@@ -4,6 +4,9 @@
 
 #include "../include/Vehiculo.hpp"
 #include "../include/Carro.hpp"
+#include "../include/Moto.hpp"
+#include "../include/Camion.hpp"
+#include "../include/Bus.hpp"
 #include "../include/Persona.hpp"
 #include "../include/Propietario.hpp"
 #include "../include/Excepciones.hpp"
@@ -18,17 +21,18 @@ int main()
     vector<Registro> registros;
     Persona* operador = new Operador("Carlos", "1060", "OP001");
     Caseta* cerroVerde = new Caseta(registros, operador);
-    //Caseta cerroVerde({},nullptr);
     vector<Vehiculo*> vehiculos;
 
     try {
         cerroVerde->setOperador(operador);
 
+        /*
+
         Persona* p1 = new Propietario("Jeison", "1058", true);
         Persona* p2 = new Propietario("Juan", "1059", false);
 
         Vehiculo* v1 = new Carro(p1, "ABC123", 3);
-
+        vehiculos.push_back(v1);
         cerroVerde->agregarRegistro(v1);
         cerroVerde->mostrarRegistros();
 
@@ -36,7 +40,6 @@ int main()
         cout << *p2 << endl;
         cout << *v1 << endl;
  
-
         v1->setPropietario(p2);
 
         cout << "///////////////////////////////////////" << endl;
@@ -45,9 +48,72 @@ int main()
         cout << "Tarifa: " << v1->cobrar() << endl;
         delete v1;
         delete p1;
+        */
 
+        //CASOS===================================================
 
+        cout << "CASOS DE PRUEBA" << endl;
 
+        cout << "1.Carro ABC123, 3 pasajeros, propietariono vecino. ¿Cuánto paga?" << endl;
+        Persona* forastero = new Propietario("Jeison", "1057", false);
+
+        Vehiculo* v1 = new Carro(forastero, "ABC123", 3);
+        cout << "Tarifa: " << v1->cobrar() << endl;
+        cout << "---------------------------------------------------------" << endl;
+
+        cout << "2 El mismo carro, ahora con un propietariovecino. ¿Cuánto paga?" << endl;
+        Persona* vecino = new Propietario("Santiago", "1058", true);
+        v1->setPropietario(vecino);
+        cout << "Tarifa: " << v1->cobrar() << endl;
+        cout << "---------------------------------------------------------" << endl;
+
+        cout << "3 Moto XYZ45A de 125 cc, propietario vecino. ¿Cuánto paga? " << endl;
+        Vehiculo* v2 = new Moto(vecino, "XYZ45A", 125);
+        cout << "Tarifa: " << v2->cobrar() << endl;
+        cout << "---------------------------------------------------------" << endl;
+
+        cout << "4 Moto MOT650 de 650 cc, sin propietario.¿Cuánto paga? ¿Es de alto cilindraje?" << endl;
+        Vehiculo* v3 = new Moto(nullptr, "MOT650", 650);
+        cout << "Tarifa: " << v3->cobrar() << endl;
+        cout << "---------------------------------------------------------" << endl;
+
+        cout << "5 Bus BUS777 de 38 puestos, propietario vecino. ¿Cuánto paga?" << endl;
+        Vehiculo* v4 = new Bus(vecino, "BUS777", 38);
+        cout << "Tarifa: " << v4->cobrar() << endl;
+        cout << "---------------------------------------------------------" << endl;
+
+        cout << "6 Camión CAM301 de 3 ejes, sin propietario. ¿Cuánto paga?" << endl;
+        Camion* v5 = new Camion(nullptr, "CAM301", 3); // Cambie Vehiculo* a Camion* para poder llamar a agregarEje(), no entre otra solucion
+        cout << "Tarifa: " << v5->cobrar() << endl;
+        cout << "---------------------------------------------------------" << endl;
+
+        cout << "7 El mismo camión después de agregarle un eje. ¿Cuánto paga?" << endl;
+        v5->agregarEje();
+        cout << "Tarifa: " << v5->cobrar() << endl;
+        cout << "---------------------------------------------------------" << endl;
+
+        cout << "8 Crear un carro con la placa vacía. ¿Quéexcepción se lanza?" << endl;
+        Vehiculo* v6 = new Carro(forastero, "", 2);
+        cout << "Tarifa: " << v6->cobrar() << endl;
+        cout << "---------------------------------------------------------" << endl;
+
+        cout << "9 Crear un camión de 1 eje. ¿Qué excepciónse lanza?" << endl;
+        Camion* v7 = new Camion(forastero, "CAM001", 1);
+        cout << "Tarifa: " << v7->cobrar() << endl;
+        cout << "---------------------------------------------------------" << endl;
+
+        cout << "10 Pasan por la caseta los vehículos de los casos 2, 3, 5 y 7. ¿Cuál es el recaudo total y cuántos hay de cada categoría?" << endl;
+        cerroVerde->agregarRegistro(v1);
+        cerroVerde->agregarRegistro(v2);
+        cerroVerde->agregarRegistro(v4);
+        //cerroVerde->agregarRegistro(v5);
+        //cerroVerde->agregarRegistro(v7);
+        cerroVerde->mostrarRegistros();
+        
+        delete v1; delete v2; delete v3; delete v4; delete v5; delete v6; delete v7;
+        delete forastero; delete vecino;
+        
+        
 
     }
     catch (const PlacaInvalidaException& e) {
@@ -64,6 +130,7 @@ int main()
     }
 
     delete cerroVerde;
+    delete operador;
     
     return 0;
 }

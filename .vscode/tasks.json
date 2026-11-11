@@ -15,9 +15,11 @@
                 "${workspaceFolder}/Src/Propietario.cpp",
                 "${workspaceFolder}/Src/Registro.cpp",
                 "${workspaceFolder}/Src/Vehiculo.cpp",
+                "${workspaceFolder}/Src/Excepciones.cpp",
                 "${workspaceFolder}/Src/Operador.cpp",
                 "${workspaceFolder}/Src/Moto.cpp",
                 "${workspaceFolder}/Src/Bus.cpp",
+                "${workspaceFolder}/Src/Camion.cpp",
                 "-o",
                 "${workspaceFolder}/Taller_Peajes"
             ],
