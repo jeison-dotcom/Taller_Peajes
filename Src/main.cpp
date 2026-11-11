@@ -9,13 +9,14 @@
 #include "../include/Excepciones.hpp"
 #include "../include/Registro.hpp"
 #include "../include/Caseta.hpp"
+#include "../include/Operador.hpp"
 
 using namespace std;
 
 int main()
 {
     vector<Registro> registros;
-    Persona* operador = new Propietario("Carlos", "1060", true);
+    Persona* operador = new Operador("Carlos", "1060", "OP001");
     Caseta* cerroVerde = new Caseta(registros, operador);
     //Caseta cerroVerde({},nullptr);
     vector<Vehiculo*> vehiculos;
@@ -27,21 +28,27 @@ int main()
         Persona* p2 = new Propietario("Juan", "1059", false);
 
         Vehiculo* v1 = new Carro(p1, "ABC123", 3);
-        Registro registro(v1->getPlaca(), v1->getTipo(), v1->cobrar());
-        cerroVerde->agregarRegistro(registro);
 
+        cerroVerde->agregarRegistro(v1);
         cerroVerde->mostrarRegistros();
 
-
-
-
-        cout << *v1 << endl;
-        cout << *p1 << endl;
+        cout << "///////////////////////////////////////" << endl;
         cout << *p2 << endl;
+        cout << *v1 << endl;
+ 
+
+        v1->setPropietario(p2);
+
+        cout << "///////////////////////////////////////" << endl;
+        cout << *v1 << endl;
 
         cout << "Tarifa: " << v1->cobrar() << endl;
         delete v1;
         delete p1;
+
+
+
+
     }
     catch (const PlacaInvalidaException& e) {
         cout << "Error de placa: " << e.what() << endl;

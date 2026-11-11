@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <string>
+#include "Vehiculo.hpp"
 
 using namespace std;
 
@@ -21,4 +22,9 @@ class Registro
     string getPlaca() const;
     string getTipo() const;
     int getCobro() const;
+
+    //void registarVehiculo(Vehiculo* &v);
+
+    string informacion() const;
 };
+ostream &operator << (ostream &os, Registro registro);

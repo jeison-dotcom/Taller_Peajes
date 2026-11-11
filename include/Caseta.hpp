@@ -19,7 +19,8 @@ class Caseta
     ~Caseta();
 
     void setOperador(Persona* operador);
-    void agregarRegistro(Registro& registro);
+    void agregarRegistro(Vehiculo* &v);
+    //void agregarRegistro(Registro& registro);
     
     void mostrarRegistros() const;
 };
