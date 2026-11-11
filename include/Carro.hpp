@@ -18,6 +18,6 @@ class Carro : public Vehiculo
 
     void subriPasajero();
     int cobrar() const override;
-    void informacion() const override;
+    string informacion() const override;
 
 };

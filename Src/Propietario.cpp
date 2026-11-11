@@ -1,17 +1,7 @@
 #include "../include/Propietario.hpp"
 
-Propietario::Propietario(string nombre, string id, string ciudad):Persona(nombre, id), ciudad(ciudad){}
+Propietario::Propietario(string nombre, string id, bool vecino):Persona(nombre, id), vecino(vecino){}
 Propietario::~Propietario(){}
-
-bool Propietario::esVecino(const vector<string>& ciudadesVecinas) const
-{
-    for (const string& ciudadVecina : ciudadesVecinas) {
-        if (ciudad == ciudadVecina) {
-            return true;
-        }
-    }
-    return false;
-}
 
 string Propietario::getDescriccion() const
 {

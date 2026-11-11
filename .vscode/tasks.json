@@ -7,9 +7,9 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
+                "-I${workspaceFolder}/include",
                 "${workspaceFolder}/Src/main.cpp",
                 "${workspaceFolder}/Src/Carro.cpp",
-                "${workspaceFolder}/Src/Peaje.cpp",
                 "${workspaceFolder}/Src/Persona.cpp",
                 "${workspaceFolder}/Src/Propietario.cpp",
                 "${workspaceFolder}/Src/Vehiculo.cpp",

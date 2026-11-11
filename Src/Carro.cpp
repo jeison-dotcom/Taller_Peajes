@@ -1,11 +1,13 @@
 #include "../include/Carro.hpp"
 
-Carro::Carro(Persona* propietario, string placa, int pasajeros)
-    : Vehiculo(propietario, placa), pasajeros(pasajeros) {
+Carro::Carro(Persona* propietario, string placa, int pasajeros): Vehiculo(propietario, placa), pasajeros(pasajeros)
+{
     if (pasajeros < 1) throw std::invalid_argument("Pasajeros >= 1");
 }
-Carro::~Carro() {}
-void Carro::setPasajeros(int p) {
+Carro::~Carro(){}
+
+void Carro::setPasajeros(int p)
+{
     if (p < 1) throw std::invalid_argument("Pasajeros >= 1");
     pasajeros = p;
 }
@@ -30,8 +32,7 @@ int Carro::cobrar() const
     return total;
 }
 
-void Carro::informacion() const
+string Carro::informacion() const
 {
-    
-    cout << getTipo() <<"  " << this->placa << "  " << this->pasajeros << " Pasajeros" << endl;
+    return Vehiculo::informacion() + ",pasajeros " + to_string(this->pasajeros);
 }

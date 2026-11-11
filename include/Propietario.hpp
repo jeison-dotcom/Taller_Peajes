@@ -10,12 +10,11 @@ class Peaje;
 class Propietario : public Persona
 {
     private:
-    string ciudad;
+    bool vecino;
 
     public:
-    Propietario(string nombre, string id, string ciudad);
+    Propietario(string nombre, string id, bool vecino);
     ~Propietario();
 
     string getDescriccion() const override;
-    bool esVecino(const vector<string>& ciudadesVecinas) const;
 };
