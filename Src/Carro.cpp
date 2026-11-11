@@ -2,13 +2,13 @@
 
 Carro::Carro(Persona* propietario, string placa, int pasajeros): Vehiculo(propietario, placa), pasajeros(pasajeros)
 {
-    if (pasajeros < 1) throw std::invalid_argument("Pasajeros >= 1");
+    if (pasajeros < 1)throw PasajerosInvalidosException(pasajeros);
 }
 Carro::~Carro(){}
 
 void Carro::setPasajeros(int p)
 {
-    if (p < 1) throw std::invalid_argument("Pasajeros >= 1");
+    if (p < 1){throw PasajerosInvalidosException(p);}
     pasajeros = p;
 }
 
@@ -22,17 +22,17 @@ void Carro::subriPasajero()
 
 int Carro::cobrar() const
 {
-    int total;
-    bool descuento = false; // debe ser cambiada por una funcion mas adelante;
-    total =  10000+(200*UNIDAD);
-    if(descuento)
-    {
-        total = total * 80 / 100;
+    int total = 10000 + (200 * UNIDAD);
+    // Bloque echo por IA
+    if (propietario != nullptr) {
+        Propietario* p = dynamic_cast<Propietario*>(propietario);
+        if (p != nullptr && p->esVecino())
+            total = total * 80 / 100;
     }
     return total;
 }
 
 string Carro::informacion() const
 {
-    return Vehiculo::informacion() + ",pasajeros " + to_string(this->pasajeros);
+    return getTipo() + " - " + Vehiculo::informacion() +" - Pasajeros: " + to_string(pasajeros);
 }

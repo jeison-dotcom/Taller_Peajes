@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "../include/Vehiculo.hpp"
 #include "../include/Carro.hpp"
@@ -10,24 +11,26 @@ using namespace std;
 
 int main()
 {
-    vector<Vehiculo*> vehiculos;
-    vector<Persona*> personas;
-
-    Persona* p1 = new Propietario("Jeison","1058",false);
-    Vehiculo* v1 = new Carro(p1,"AAA123",2);
-    /*
-    Peaje peaje;
     try {
-        peaje.registrarPropietario("Jeison", "1058", "Popayan");
-        peaje.registrarCarro("CPP17", 2, 0);
-        peaje.registrarCarro("XYZ99", 4, 0);
-    } catch (const exception& e) {
-        cout << "Error: " << e.what() << endl;
-        return 1;
+        Persona* p1 = new Propietario("Jeison", "1058", true);
+        Vehiculo* v1 = new Carro(p1, "AAA123", 2);
+        cout << *v1 << endl;
+        cout << "Tarifa: " << v1->cobrar() << endl;
+        delete v1;
+        delete p1;
     }
-        cout << "Recaudado: " << peaje.getRecaudado() << endl;
-    */
+    catch (const PlacaInvalidaException& e) {
+        cout << "Error de placa: " << e.what() << endl;
+    }
+    catch (const PasajerosInvalidosException& e) {
+        cout << "Error de pasajeros: " << e.what() << endl;
+    }
+    catch (const PeajeException& e) {
+        cout << "Error: " << e.what() << endl;
+    }
+    catch (const exception& e) {
+        cout << "Error inesperado: " << e.what() << endl;
+    }
     
-
     return 0;
 }

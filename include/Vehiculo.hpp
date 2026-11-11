@@ -4,6 +4,7 @@
 #include<string>
 
 #include "Propietario.hpp"
+#include "Excepciones.hpp"
 
 using namespace std;
 
