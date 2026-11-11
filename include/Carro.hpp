@@ -2,6 +2,8 @@
 
 #include "Vehiculo.hpp"
 #include "Variante.hpp"
+#include "Propietario.hpp"
+#include "Persona.hpp"
 
 class Carro : public Vehiculo
 {

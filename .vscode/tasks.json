@@ -16,6 +16,8 @@
                 "${workspaceFolder}/Src/Registro.cpp",
                 "${workspaceFolder}/Src/Vehiculo.cpp",
                 "${workspaceFolder}/Src/Operador.cpp",
+                "${workspaceFolder}/Src/Moto.cpp",
+                "${workspaceFolder}/Src/Bus.cpp",
                 "-o",
                 "${workspaceFolder}/Taller_Peajes"
             ],
