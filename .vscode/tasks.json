@@ -10,8 +10,10 @@
                 "-I${workspaceFolder}/include",
                 "${workspaceFolder}/Src/main.cpp",
                 "${workspaceFolder}/Src/Carro.cpp",
+                "${workspaceFolder}/Src/Caseta.cpp",
                 "${workspaceFolder}/Src/Persona.cpp",
                 "${workspaceFolder}/Src/Propietario.cpp",
+                "${workspaceFolder}/Src/Registro.cpp",
                 "${workspaceFolder}/Src/Vehiculo.cpp",
                 "-o",
                 "${workspaceFolder}/Taller_Peajes"

@@ -6,14 +6,27 @@
 #include "../include/Carro.hpp"
 #include "../include/Persona.hpp"
 #include "../include/Propietario.hpp"
+#include "../include/Excepciones.hpp"
+#include "../include/Registro.hpp"
+#include "../include/Caseta.hpp"
 
 using namespace std;
 
 int main()
 {
+    vector<Registro> registros;
+    Persona* operador = new Propietario("Carlos", "1060", true);
+    Caseta* cerroVerde = new Caseta(registros, operador);
+    //Caseta cerroVerde({},nullptr);
+    vector<Vehiculo*> vehiculos;
+
     try {
+        cerroVerde->setOperador(operador);
+
         Persona* p1 = new Propietario("Jeison", "1058", true);
-        Vehiculo* v1 = new Carro(p1, "AAA123", 2);
+        Persona* p2 = new Propietario("Juan", "1059", false);
+
+        Vehiculo* v1 = new Carro(p2, "ABC123", 3);
         cout << *v1 << endl;
         cout << "Tarifa: " << v1->cobrar() << endl;
         delete v1;
@@ -31,6 +44,8 @@ int main()
     catch (const exception& e) {
         cout << "Error inesperado: " << e.what() << endl;
     }
+
+    delete cerroVerde;
     
     return 0;
 }

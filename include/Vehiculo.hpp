@@ -23,7 +23,7 @@ class Vehiculo
     string getPlaca() const;
     Persona* getPropietario() const;
     void setPropietario(Persona* propietario);
-    void setPlaca(const string& p);
+    void setPlaca(string p);
 
     virtual int cobrar()const = 0;
     virtual string informacion() const;

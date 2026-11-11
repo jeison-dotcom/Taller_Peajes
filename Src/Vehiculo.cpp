@@ -8,7 +8,7 @@ Vehiculo::Vehiculo(Persona* propietario, string placa) : placa(placa), propietar
 Vehiculo::~Vehiculo(){}
 
 string Vehiculo::getPlaca() const { return placa; }
-void Vehiculo::setPlaca(const string& p)
+void Vehiculo::setPlaca(string p)
 {
     if (p.empty())
     throw PlacaInvalidaException();
