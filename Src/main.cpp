@@ -32,8 +32,7 @@ int main()
     try {
         cerroVerde->setOperador(operador);
 
-  
-        //CASOS===================================================
+        //CASOS DE PRUEBA
 
         cout << "CASOS DE PRUEBA" << endl;
 
@@ -91,8 +90,6 @@ int main()
         
         delete v1; delete v2; delete v3; delete v4; delete v5;// delete v6; delete v7;
         
-        
-
     }
     catch (const PlacaInvalidaException& e) {
         cout << "Error de placa: " << e.what() << endl;
@@ -135,20 +132,19 @@ int main()
     delete vecino;
     delete cerroVerde;
     delete operador;
-    
-    return 0;
-}
 
+    cout << "---------------------------------------------------------" << endl;
+    cout << "Otras Pruebas" << endl;
 
-      /*
+    Persona* p1 = new Propietario("Jeison", "1058", true);
+    Persona* p2 = new Propietario("Juan", "1059", false);
+    Persona* p3 = new Operador("Maria", "1060", "ZA63");
 
-        Persona* p1 = new Propietario("Jeison", "1058", true);
-        Persona* p2 = new Propietario("Juan", "1059", false);
+    Caseta* caseta = new Caseta({}, p3);
 
         Vehiculo* v1 = new Carro(p1, "ABC123", 3);
-        vehiculos.push_back(v1);
-        cerroVerde->agregarRegistro(v1);
-        cerroVerde->mostrarRegistros();
+        caseta->agregarRegistro(v1);
+        caseta->mostrarRegistros();
 
         cout << "///////////////////////////////////////" << endl;
         cout << *p2 << endl;
@@ -162,4 +158,8 @@ int main()
         cout << "Tarifa: " << v1->cobrar() << endl;
         delete v1;
         delete p1;
-        */
+        delete p2;
+        delete caseta;
+    
+    return 0;
+}

@@ -6,22 +6,22 @@ Caseta::~Caseta(){}
 void Caseta::setOperador(Persona* operador){this->operador = operador;}
 
 
-void Caseta::agregarRegistro(Vehiculo* &v)
+void Caseta::agregarRegistro(Vehiculo* v)
 {
-    Registro registro(v->getPlaca(), v->getTipo(), v->cobrar());
-    registros.push_back(registro);
+    if (v == nullptr) return;
+    registros.emplace_back(v->getPlaca(), v->getTipo(), v->cobrar());
 }
 
 void Caseta::mostrarRegistros() const
 {
     cout << "Registros de la caseta:" << endl;
+    cout << *operador << endl;
+
     for (int i = 0; i < registros.size(); ++i)
     {
-        cout << "_________________________________________________________" << endl;
-        cout << *operador << endl;
-        cout << "---------------------------------------------------------" << endl;
+        cout << "==========================================================" << endl;
         cout << registros[i] << endl;
-        cout << "_________________________________________________________" << endl;
+        cout << "==========================================================" << endl;
 
         //cout << "Operador: " << operador->getNombre(); // << ", Codigo: " << operador->getCodigo() << endl;
         //cout << operador->getDescripcion() << endl;
