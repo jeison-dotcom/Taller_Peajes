@@ -19,14 +19,18 @@ using namespace std;
 int main()
 {
     vector<Registro> registros;
+    vector<Vehiculo*> vehiculos;
+    vector<Persona*> personas;
 
-    Persona* operador = new Operador("marian Paz", "1060", "OP001");
+    personas.push_back(new Operador("marian Paz", "1060", "OP001"));
+    Persona* operador = personas.back();
     Caseta* cerroVerde = new Caseta(registros, operador);
 
-    vector<Vehiculo*> vehiculos;
 
-    Persona* forastero = new Propietario("Jeison Macias", "1057", false);
-    Persona* vecino = new Propietario("Santiago Ijaji", "1058", true);
+    personas.push_back(new Propietario("Jeison Macias", "1057", false));
+    Persona* forastero = personas.back();
+    personas.push_back(new Propietario("Santiago Ijaji", "1058", true));
+    Persona* vecino = personas.back();
 
 
     try {
@@ -38,7 +42,8 @@ int main()
 
         cout << "1.Carro ABC123, 3 pasajeros, propietariono vecino. ¿Cuánto paga?" << endl;
         
-        Vehiculo* v1 = new Carro(forastero, "ABC123", 3);
+        vehiculos.push_back(new Carro(forastero, "ABC123", 3));
+        Vehiculo* v1 = vehiculos.back();
         cout << "Pago: " << v1->cobrar() << endl;
         cout << "---------------------------------------------------------" << endl;
 
@@ -55,22 +60,26 @@ int main()
         cout << "---------------------------------------------------------" << endl;
 
         cout << "3 Moto XYZ45A de 125 cc, propietario vecino. ¿Cuánto paga? " << endl;
-        Vehiculo* v2 = new Moto(vecino, "XYZ45A", 125);
+        vehiculos.push_back(new Moto(vecino, "XYZ45A", 125));
+        Vehiculo* v2 = vehiculos.back();
         cout << "Pago: " << v2->cobrar() << endl;
         cout << "---------------------------------------------------------" << endl;
 
         cout << "4 Moto MOT650 de 650 cc, sin propietario.¿Cuánto paga? ¿Es de alto cilindraje?" << endl;
-        Vehiculo* v3 = new Moto(nullptr, "MOT650", 650);
+        vehiculos.push_back(new Moto(nullptr, "MOT650", 650));
+        Vehiculo* v3 = vehiculos.back();
         cout << "Pago: " << v3->cobrar() << endl;
         cout << "---------------------------------------------------------" << endl;
 
         cout << "5 Bus BUS777 de 38 puestos, propietario vecino. ¿Cuánto paga?" << endl;
-        Vehiculo* v4 = new Bus(vecino, "BUS777", 38);
+        vehiculos.push_back(new Bus(vecino, "BUS777", 38));
+        Vehiculo* v4 = vehiculos.back();
         cout << "Pago: " << v4->cobrar() << endl;
         cout << "---------------------------------------------------------" << endl;
 
         cout << "6 Camión CAM301 de 3 ejes, sin propietario. ¿Cuánto paga?" << endl;
         Camion* v5 = new Camion(nullptr, "CAM301", 3); // Cambie Vehiculo* a Camion* para poder llamar a agregarEje(), no entre otra solucion
+        vehiculos.push_back(v5);
         cout << "Pago: " << v5->cobrar() << endl;
         cout << "---------------------------------------------------------" << endl;
 
@@ -87,8 +96,6 @@ int main()
         //cerroVerde->agregarRegistro(v5);
         //cerroVerde->agregarRegistro(v7);
         cerroVerde->mostrarRegistros();
-        
-        delete v1; delete v2; delete v3; delete v4; delete v5;// delete v6; delete v7;
         
     }
     catch (const PlacaInvalidaException& e) {
@@ -107,8 +114,8 @@ int main()
     cout << "8. Crear un carro con la placa vacia. ¿Que excepcion se lanza?" << endl;
     try {
         Vehiculo* v6 = new Carro(forastero, "", 2);
+        vehiculos.push_back(v6);
         cout << "Pago: " << v6->cobrar() << endl;
-        delete v6;
     }
     catch (const PlacaInvalidaException& e) {
         cout << "Error de placa: " << e.what() << endl;
@@ -118,20 +125,22 @@ int main()
     cout << "9. Crear un camion de 1 eje. ¿Que excepcion se lanza?" << endl;
     try {
         Camion* v7 = new Camion(forastero, "CAM001", 1);
+        vehiculos.push_back(v7);
         cout << "Pago: " << v7->cobrar() << endl;
-        delete v7;
     }
     catch (const EjesInvalidosException& e) {
         cout << "Error de ejes: " << e.what() << endl;
     }
     
-        for (Vehiculo* v : vehiculos) delete v;
+    delete cerroVerde;
+
+    for (Vehiculo* v : vehiculos) delete v;
     vehiculos.clear();
 
-    delete forastero;
-    delete vecino;
-    delete cerroVerde;
-    delete operador;
+    for (Persona* p : personas) delete p;
+    personas.clear();
+
+    
 
     cout << "---------------------------------------------------------" << endl;
     cout << "Otras Pruebas" << endl;
@@ -160,6 +169,7 @@ int main()
         delete p1;
         delete p2;
         delete caseta;
+        
     
     return 0;
 }
