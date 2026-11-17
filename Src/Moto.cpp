@@ -15,7 +15,7 @@ int Moto::cobrar() const
     int total = 3000 + 100 * UNIDAD;
 
     if (propietario != nullptr && propietario->esVecino())
-        total = total * (100 - CENTENA) / 100;
+        total = total * (100 - (30 + CENTENA)) / 100;
     return total;
 }
 string Moto::informacion() const
