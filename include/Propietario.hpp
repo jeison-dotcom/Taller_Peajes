@@ -16,6 +16,6 @@ class Propietario : public Persona
     Propietario(string nombre, string id, bool vecino);
     ~Propietario();
 
-    bool esVecino() const;
+    bool esVecino() const override;
     string getDescriccion() const override;
 };

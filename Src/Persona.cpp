@@ -6,6 +6,8 @@ Persona::~Persona(){}
 string Persona::getNombre() const {return nombre;}
 string Persona::getID() const {return id;}
 
+bool Persona::esVecino() const {return false;}
+
 string Persona::getDescriccion() const
 {
     return "Persona: " + nombre + ", ID: " + id;

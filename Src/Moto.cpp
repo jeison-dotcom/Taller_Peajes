@@ -14,12 +14,8 @@ int Moto::cobrar() const
 {
     int total = 3000 + 100 * UNIDAD;
 
-    if (propietario != nullptr)
-    {
-        Propietario* p = dynamic_cast<Propietario*>(propietario);
-        if (p != nullptr && p->esVecino())
-            total = total * (100 - CENTENA) / 100;
-    }
+    if (propietario != nullptr && propietario->esVecino())
+        total = total * (100 - CENTENA) / 100;
     return total;
 }
 string Moto::informacion() const

@@ -1,6 +1,7 @@
 #include "Caseta.hpp"
 
-Caseta::Caseta(vector<Registro> registros, Persona* operador):registros(registros), operador(operador){}
+Caseta::Caseta(vector<Registro> registros, vector<Persona*>& personas, vector<Vehiculo*>& vehiculos, Persona* operador)
+    : registros(registros), personas(personas), vehiculos(vehiculos), operador(operador) {}
 Caseta::~Caseta(){}
 
 void Caseta::setOperador(Persona* operador){this->operador = operador;}
@@ -12,19 +13,30 @@ void Caseta::agregarRegistro(Vehiculo* v)
     registros.emplace_back(v->getPlaca(), v->getTipo(), v->cobrar());
 }
 
+int Caseta::calcularRecaudoTotal() const
+{
+    int total = 0;
+    for (const Registro& registro : registros)
+        total += registro.getCobro();
+    return total;
+}
+
 void Caseta::mostrarRegistros() const
 {
     cout << "Registros de la caseta:" << endl;
-    cout << *operador << endl;
+    if (operador != nullptr)
+        cout << *operador << endl;
+    else
+        cout << "Operador: no asignado" << endl;
 
-    for (int i = 0; i < registros.size(); ++i)
+    if (registros.empty())
     {
-        cout << "==========================================================" << endl;
-        cout << registros[i] << endl;
-        cout << "==========================================================" << endl;
-
-        //cout << "Operador: " << operador->getNombre(); // << ", Codigo: " << operador->getCodigo() << endl;
-        //cout << operador->getDescripcion() << endl;
-        //cout << "Placa: " << registro.getPlaca() << ", Tipo: " << registro.getTipo() << ", Cobro: " << registro.getCobro() << endl;
+        cout << "No hay registros." << endl;
+        return;
     }
+
+    for (const Registro& registro : registros)
+        cout << "==========================================================" << endl
+             << registro << endl;
+    cout << "==========================================================" << endl;
 }

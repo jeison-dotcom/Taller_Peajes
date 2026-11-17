@@ -24,12 +24,8 @@ int Carro::cobrar() const
 {
     int total = 10000 + 200 * UNIDAD;
 
-    if (propietario != nullptr)
-    {
-        Propietario* p = dynamic_cast<Propietario*>(propietario);
-        if (p != nullptr && p->esVecino()) {
-            total = total * (100 - CENTENA) / 100;
-        }
+    if (propietario != nullptr && propietario->esVecino()) {
+        total = total * (100 - CENTENA) / 100;
     }
     return total;
 }

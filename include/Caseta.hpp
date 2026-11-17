@@ -13,13 +13,16 @@ class Caseta
 {
     private:
     vector<Registro> registros;
+    vector<Persona*>& personas;
+    vector<Vehiculo*>& vehiculos;
     Persona* operador;
     public:
-    Caseta(vector<Registro> registros, Persona* operador);
+    Caseta(vector<Registro> registros, vector<Persona*>& personas, vector<Vehiculo*>& vehiculos, Persona* operador);
     ~Caseta();
 
     void setOperador(Persona* operador);
     void agregarRegistro(Vehiculo* v);
+    int calcularRecaudoTotal() const;
     //void agregarRegistro(Registro& registro);
     
     void mostrarRegistros() const;

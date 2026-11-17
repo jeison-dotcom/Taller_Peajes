@@ -18,6 +18,7 @@ class Persona
     string getNombre() const;
     string getID() const;
 
+    virtual bool esVecino() const;
     virtual string getDescriccion() const;
     
 };
