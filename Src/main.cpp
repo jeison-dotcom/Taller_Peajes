@@ -24,7 +24,7 @@ int main()
 
     personas.push_back(new Operador("marian Paz", "1060", "OP001"));
     Persona* operador = personas.back();
-    Caseta* cerroVerde = new Caseta(registros, operador);
+    Caseta* cerroVerde = new Caseta(registros, personas, vehiculos, operador);
 
 
     personas.push_back(new Propietario("Jeison Macias", "1057", false));
@@ -89,13 +89,11 @@ int main()
         cout << "---------------------------------------------------------" << endl;
 
 
-        cout << "10 Pasan por la caseta los vehículos de los casos 2, 3, 5 y 7. ¿Cuál es el recaudo total y cuántos hay de cada categoría?" << endl;
+       
         cerroVerde->agregarRegistro(v1);
         cerroVerde->agregarRegistro(v2);
         cerroVerde->agregarRegistro(v4);
-        //cerroVerde->agregarRegistro(v5);
-        //cerroVerde->agregarRegistro(v7);
-        cerroVerde->mostrarRegistros();
+        cerroVerde->agregarRegistro(v5);
         
     }
     catch (const PlacaInvalidaException& e) {
@@ -116,6 +114,7 @@ int main()
         Vehiculo* v6 = new Carro(forastero, "", 2);
         vehiculos.push_back(v6);
         cout << "Pago: " << v6->cobrar() << endl;
+        cerroVerde->agregarRegistro(v6);
     }
     catch (const PlacaInvalidaException& e) {
         cout << "Error de placa: " << e.what() << endl;
@@ -127,11 +126,20 @@ int main()
         Camion* v7 = new Camion(forastero, "CAM001", 1);
         vehiculos.push_back(v7);
         cout << "Pago: " << v7->cobrar() << endl;
+        cerroVerde->agregarRegistro(v7);
     }
     catch (const EjesInvalidosException& e) {
         cout << "Error de ejes: " << e.what() << endl;
     }
+    cout << "---------------------------------------------------------" << endl;
     
+     cout << "10 Pasan por la caseta los vehículos de los casos 2, 3, 5 y 7. ¿Cuál es el recaudo total y cuántos hay de cada categoría?" << endl;
+    cout << "******************************************" << endl;
+    cerroVerde->mostrarRegistros();
+    cout << "Recaudo total: $" << cerroVerde->calcularRecaudoTotal() << endl;
+    cout << "******************************************" << endl;
+
+
     delete cerroVerde;
 
     for (Vehiculo* v : vehiculos) delete v;
@@ -140,8 +148,7 @@ int main()
     for (Persona* p : personas) delete p;
     personas.clear();
 
-    
-
+    cout << "---------------------------------------------------------" << endl << endl << endl;
     cout << "---------------------------------------------------------" << endl;
     cout << "Otras Pruebas" << endl;
 
@@ -149,9 +156,12 @@ int main()
     Persona* p2 = new Propietario("Juan", "1059", false);
     Persona* p3 = new Operador("Maria", "1060", "ZA63");
 
-    Caseta* caseta = new Caseta({}, p3);
+    vector<Persona*> personasCaseta{p1, p2, p3};
+    vector<Vehiculo*> vehiculosCaseta;
+    Caseta* caseta = new Caseta({}, personasCaseta, vehiculosCaseta, p3);
 
         Vehiculo* v1 = new Carro(p1, "ABC123", 3);
+        vehiculosCaseta.push_back(v1);
         caseta->agregarRegistro(v1);
         caseta->mostrarRegistros();
 
