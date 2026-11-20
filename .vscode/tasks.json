@@ -20,6 +20,8 @@
                 "${workspaceFolder}/Src/Moto.cpp",
                 "${workspaceFolder}/Src/Bus.cpp",
                 "${workspaceFolder}/Src/Camion.cpp",
+                "${workspaceFolder}/Src/Emergencia.cpp",
+                "${workspaceFolder}/Src/Ambulancea.cpp",
                 "-o",
                 "${workspaceFolder}/Taller_Peajes"
             ],

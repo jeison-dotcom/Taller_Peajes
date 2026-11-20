@@ -36,7 +36,7 @@ void Caseta::mostrarRegistros() const
     }
 
     for (const Registro& registro : registros)
-        cout << "==========================================================" << endl
+        cout << "======================================================" << endl
              << registro << endl;
     cout << "==========================================================" << endl;
 }

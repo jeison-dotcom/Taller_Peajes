@@ -13,17 +13,20 @@
 #include "../include/Registro.hpp"
 #include "../include/Caseta.hpp"
 #include "../include/Operador.hpp"
+#include "../include/Ambulacea.hpp"
 
 using namespace std;
 
 int main()
 {
+  
     vector<Registro> registros;
     vector<Vehiculo*> vehiculos;
     vector<Persona*> personas;
 
     personas.push_back(new Operador("marian Paz", "1060", "OP001"));
     Persona* operador = personas.back();
+
     Caseta* cerroVerde = new Caseta(registros, personas, vehiculos, operador);
 
 
@@ -32,6 +35,17 @@ int main()
     personas.push_back(new Propietario("Santiago Ijaji", "1058", true));
     Persona* vecino = personas.back();
 
+    Vehiculo* ambulancea = new Ambulancea(vecino,"AAA111", "Unidad del Cerro", "descricccion", false);
+
+    cout << *ambulancea;
+
+    
+    return 0;
+}
+
+
+/*
+ 
 
     try {
         cerroVerde->setOperador(operador);
@@ -179,7 +193,4 @@ int main()
         delete p1;
         delete p2;
         delete caseta;
-        
-    
-    return 0;
-}
+*/

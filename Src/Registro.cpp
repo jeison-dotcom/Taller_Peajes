@@ -11,16 +11,6 @@ string Registro::getPlaca() const {return placa;}
 string Registro::getTipo() const {return tipo;}
 int Registro::getCobro() const {return cobro;}
 
-
-/*
-void Registro::registarVehiculo(Vehiculo* &v)
-{
-    this->placa = v->getPlaca();
-    this->tipo = v->getPlaca();
-    this ->cobro = getCobro();
-}
-*/
-
 string Registro::informacion() const
 {
     return "Registro - Placa: " + placa + ", Tipo: " + tipo + ", Cobro: " + to_string(cobro);
